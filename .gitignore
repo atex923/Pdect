@@ -1,0 +1,4 @@
+__pycache__/
+*.py[cod]
+Pdect_startup_error.log
+.DS_Store

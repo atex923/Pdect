@@ -1,0 +1,31 @@
+你正在接手 Windows PDF 標記工具「Pdect / P找碴」，目前版本 V0.3.6。
+
+請先閱讀 README_交接說明.md，再閱讀：
+1. pdect_app.py
+2. pdect_recovery_ext.py
+3. Pdect_V0.3.6.pyw
+
+架構：
+- pdect_app.py 是功能主程式與唯一 UI / PDF 編輯 source of truth。
+- Pdect_V0.3.6.pyw 是 fail-safe launcher；它動態尋找並載入 pdect_app.py。
+- pdect_recovery_ext.py 是 optional monkey-patch extension，提供 Quick Save / autosave / crash recovery；它失敗時不得阻止主程式啟動。
+
+目前最重要的不變條件：
+- 保持繁體中文 UI。
+- PDF 連續頁面與現有縮放/捲動行為不可退化。
+- 圖說目前是自訂群組：框、箭頭、向量文字 content stream；用 group ID 跨 xref 重建追蹤。
+- 圖說字型預設在 Windows 取 C:\Windows\Fonts\kaiu.ttf；其他平台可用 PDECT_KAIU_FONT 指定合法本機 kaiu.ttf，文字上/左內距 2 px。
+- 快速窗選清除必須一次快照、批次刪除；圖說碰到任一部分就整組刪除。
+- Undo / Redo 各最多 10 次：Ctrl+Z / Ctrl+Y；新編輯清 Redo。
+- 正式存檔前後必須保持安全寫入與可重新開啟驗證，不要直接破壞來源檔。
+- Recovery extension 背景 autosave 預設 60 秒；不可讓 extension failure 造成 app crash。
+- 不要將字型檔加入 repo 或交付包。
+
+收到新需求時：
+1. 優先直接修改 pdect_app.py；只有 Quick Save / autosave / recovery 類需求才修改 pdect_recovery_ext.py。
+2. 對 launch / packaging 才修改 Pdect_V*.pyw。
+3. 每次進版同步三處版本資訊（實際有變的檔案）。
+4. 完成後執行 py_compile。
+5. 若環境有 PySide6 + PyMuPDF，再用最小 PDF 做功能 smoke test。
+6. 若無 GUI 環境，至少針對 PDF mutation / snapshot / metadata helper 做非 GUI 測試。
+7. 回覆使用者時提供 .pyw、主程式、擴充模組與完整 ZIP 下載。

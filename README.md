@@ -1,0 +1,60 @@
+# Pdect / P找碴
+
+Pdect 是一個繁體中文介面的 Windows PDF 標記工具，主打快速找字、批次標記、圖說註解與安全存檔。適合校稿、審圖、合約或工程文件比對時，把需要注意的文字與區域直接留在 PDF 裡。
+
+## 特色
+
+- 關鍵字搜尋後批次套用螢光筆或刪除線，並可指定起始頁。
+- 支援整份 PDF 連續垂直預覽、拖曳開檔、Ctrl + 滾輪縮放與快速跳頁。
+- 3 組可自訂色塊，螢光筆、刪除線與手繪線共用目前選色。
+- 手繪水平螢光線、水平刪除線、左上到右下斜線刪除線。
+- 快速窗選清除標記，框到圖說任一部分時會整組刪除。
+- 圖說支援紅框、箭頭、底色、字級調整、拖移、縮放、複製、刪除與雙擊改字。
+- Undo / Redo 各最多 10 次，快捷鍵為 Ctrl+Z / Ctrl+Y。
+- 正式存檔採安全暫存、驗證、替換、重開流程，降低直接覆寫來源 PDF 的風險。
+- Recovery extension 提供 Ctrl+Alt+S 快速儲存、每分鐘 autosave 與異常復原提示。
+
+## 目前版本
+
+- App：V0.3.6
+- Launcher：V0.3.6
+- Recovery extension：V0.3.6
+
+## 使用方式
+
+安裝依賴：
+
+```bash
+pip install -r requirements.txt
+```
+
+Windows 建議執行：
+
+```text
+雙擊 Pdect_V0.3.6.pyw
+```
+
+除錯時可用：
+
+```bash
+python Pdect_V0.3.6.py
+```
+
+## 字型需求
+
+圖說文字使用本機標楷體 `kaiu.ttf` 產生可嵌入 PDF 的向量文字。Windows 預設路徑為：
+
+```text
+C:\Windows\Fonts\kaiu.ttf
+```
+
+非 Windows 或自訂環境可設定 `PDECT_KAIU_FONT` 指向合法的本機 `kaiu.ttf`。請勿將字型檔提交到 repo 或打包進交付包。
+
+## 專案檔案
+
+- `Pdect_V0.3.6.pyw`：正式入口，載入失敗時會顯示錯誤並寫入 `Pdect_startup_error.log`。
+- `Pdect_V0.3.6.py`：console 可見的除錯入口。
+- `pdect_app.py`：主程式與 PDF 編輯邏輯。
+- `pdect_recovery_ext.py`：Quick Save、autosave、recovery 擴充。
+- `README_交接說明.md`：維護交接、架構與驗收清單。
+- `src_versioned/`：版本化來源副本。

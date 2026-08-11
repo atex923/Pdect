@@ -1,0 +1,19 @@
+Pdect V0.3.6 Codex handoff package
+
+Runtime files (same directory):
+- Pdect_V0.3.6.pyw        fail-safe launcher / recommended entry point
+- pdect_app.py             main application source
+- pdect_recovery_ext.py    optional quick-save/autosave/recovery extension
+- requirements.txt         Python dependencies
+
+Convenience / handoff files:
+- Pdect_V0.3.6.py          console-visible copy of launcher for debugging
+- README_交接說明.md       architecture, features, risks, test checklist
+- CODEX_PROMPT.txt         ready-to-paste Codex handoff prompt
+- src_versioned/           version-suffixed source copies for archival clarity
+- SHA256SUMS.txt           checksums
+
+External runtime requirement on Windows for callout font:
+- C:\Windows\Fonts\kaiu.ttf
+  Non-Windows / custom setups may set PDECT_KAIU_FONT to a legal local kaiu.ttf.
+  (Do NOT redistribute or package the font file.)
