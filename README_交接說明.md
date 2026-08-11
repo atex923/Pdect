@@ -7,6 +7,8 @@
 - `pdect_app.py`：主程式，所有 PDF 編輯 UI / 標記 / 圖說 / Undo / Redo 都在這裡。
 - `pdect_recovery_ext.py`：可選擴充，負責快速儲存、每分鐘背景預存、異常復原。
 
+GitHub 主頁與根目錄只保留目前最新版；舊版來源移到 `history/Vx.y.z/` 依版號分資料夾保存。
+
 安裝：
 
 ```bash
@@ -122,3 +124,4 @@ Codex 修改後至少應逐項確認：
 - `Pdect_V*.pyw` 啟動器的 `APP_VERSION`。
 - `pdect_recovery_ext.py` 的 `EXT_VERSION`（若擴充有改）。
 - 交付檔名與 ZIP 名稱。
+- 舊版來源移入 `history/` 對應版號資料夾，根目錄與 GitHub 主頁維持最新版。

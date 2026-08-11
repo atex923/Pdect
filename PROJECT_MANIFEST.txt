@@ -10,7 +10,8 @@ Convenience / handoff files:
 - Pdect_V0.3.6.py          console-visible copy of launcher for debugging
 - README_交接說明.md       architecture, features, risks, test checklist
 - CODEX_PROMPT.txt         ready-to-paste Codex handoff prompt
-- src_versioned/           version-suffixed source copies for archival clarity
+- src_versioned/           current version-suffixed source copies
+- history/                 older versions grouped by version folder
 - SHA256SUMS.txt           checksums
 
 External runtime requirement on Windows for callout font:

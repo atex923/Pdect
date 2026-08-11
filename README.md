@@ -20,6 +20,8 @@ Pdect 是一個繁體中文介面的 Windows PDF 標記工具，主打快速找�
 - Launcher：V0.3.6
 - Recovery extension：V0.3.6
 
+GitHub 主頁與根目錄只保留目前最新版。舊版來源統一收到 `history/`，並依版號分資料夾保存。
+
 ## 使用方式
 
 安裝依賴：
@@ -57,4 +59,9 @@ C:\Windows\Fonts\kaiu.ttf
 - `pdect_app.py`：主程式與 PDF 編輯邏輯。
 - `pdect_recovery_ext.py`：Quick Save、autosave、recovery 擴充。
 - `README_交接說明.md`：維護交接、架構與驗收清單。
-- `src_versioned/`：版本化來源副本。
+- `src_versioned/`：目前最新版的版本化來源副本。
+- `history/`：舊版號歷史區，依版本資料夾收存。
+
+## 歷史版本
+
+- `history/V0.3.5/`：V0.3.5 主程式與 recovery extension 歷史來源。
