@@ -5,5 +5,6 @@
 ## 版本資料夾
 
 - `V0.3.5/`：V0.3.5 主程式與 recovery extension 版本化來源。
+- `V0.3.6/`：V0.3.6 主程式與 recovery extension 版本化來源。
 
-最新版請回到 repo 根目錄使用 `Pdect_V0.3.6.pyw`、`pdect_app.py`、`pdect_recovery_ext.py`。
+最新版請回到 repo 根目錄使用 `Pdect_V0.3.7.pyw`、`pdect_app.py`、`pdect_recovery_ext.py`。

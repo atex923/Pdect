@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Pdect V0.3.6 fail-safe launcher.
+"""Pdect V0.3.7 fail-safe launcher.
 
 Keeps the original Codex-built pdect_app as the source of truth.
 Quick-save / autosave extension is optional and must never prevent Pdect from starting.
@@ -13,7 +13,7 @@ import traceback
 from pathlib import Path
 from datetime import datetime
 
-APP_VERSION = "V0.3.6"
+APP_VERSION = "V0.3.7"
 
 
 def _base_dir() -> Path:
@@ -148,7 +148,7 @@ def main() -> int:
         msg = (
             "找不到 Pdect 主程式模組：pdect_app.py\n\n"
             "你目前執行的是啟動器，V0.3.0 的實際程式內容在 pdect_app.py。\n"
-            "請把 Pdect_V0.3.6.pyw、pdect_recovery_ext.py 和原本的 pdect_app.py\n"
+            "請把 Pdect_V0.3.7.pyw、pdect_recovery_ext.py 和原本的 pdect_app.py\n"
             "放在同一個資料夾後再執行。\n\n"
             "程式不會再直接閃退。"
         )

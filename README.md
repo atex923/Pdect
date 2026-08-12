@@ -9,6 +9,10 @@ Pdect 是一個繁體中文介面的 Windows PDF 標記工具，主打快速找�
 - 3 組可自訂色塊，螢光筆、刪除線與手繪線共用目前選色。
 - 手繪水平螢光線、水平刪除線、左上到右下斜線刪除線。
 - 快速窗選清除標記，框到圖說任一部分時會整組刪除。
+- 選擇文字工具可拖曳框選 PDF 文字並複製到剪貼簿。
+- PDF 書籤下拉工具可輸入名稱、儲存目前頁、跳轉與刪除書籤，新增 / 刪除可 Undo / Redo。
+- 再次開啟同一 PDF 時可選擇回到上次檢視頁面。
+- 透明內部方框註記，框線顏色沿用目前色塊，粗細沿用刪除線寬度。
 - 圖說支援紅框、箭頭、底色、字級調整、拖移、縮放、複製、刪除與雙擊改字。
 - Undo / Redo 各最多 10 次，快捷鍵為 Ctrl+Z / Ctrl+Y。
 - 正式存檔採安全暫存、驗證、替換、重開流程，降低直接覆寫來源 PDF 的風險。
@@ -16,9 +20,9 @@ Pdect 是一個繁體中文介面的 Windows PDF 標記工具，主打快速找�
 
 ## 目前版本
 
-- App：V0.3.6
-- Launcher：V0.3.6
-- Recovery extension：V0.3.6
+- App：V0.3.7
+- Launcher：V0.3.7
+- Recovery extension：V0.3.7
 
 GitHub 主頁與根目錄只保留目前最新版。舊版來源統一收到 `history/`，並依版號分資料夾保存。
 
@@ -33,13 +37,13 @@ pip install -r requirements.txt
 Windows 建議執行：
 
 ```text
-雙擊 Pdect_V0.3.6.pyw
+雙擊 Pdect_V0.3.7.pyw
 ```
 
 除錯時可用：
 
 ```bash
-python Pdect_V0.3.6.py
+python Pdect_V0.3.7.py
 ```
 
 ## 字型需求
@@ -54,8 +58,8 @@ C:\Windows\Fonts\kaiu.ttf
 
 ## 專案檔案
 
-- `Pdect_V0.3.6.pyw`：正式入口，載入失敗時會顯示錯誤並寫入 `Pdect_startup_error.log`。
-- `Pdect_V0.3.6.py`：console 可見的除錯入口。
+- `Pdect_V0.3.7.pyw`：正式入口，載入失敗時會顯示錯誤並寫入 `Pdect_startup_error.log`。
+- `Pdect_V0.3.7.py`：console 可見的除錯入口。
 - `pdect_app.py`：主程式與 PDF 編輯邏輯。
 - `pdect_recovery_ext.py`：Quick Save、autosave、recovery 擴充。
 - `README_交接說明.md`：維護交接、架構與驗收清單。
@@ -65,3 +69,4 @@ C:\Windows\Fonts\kaiu.ttf
 ## 歷史版本
 
 - `history/V0.3.5/`：V0.3.5 主程式與 recovery extension 歷史來源。
+- `history/V0.3.6/`：V0.3.6 主程式與 recovery extension 歷史來源。
