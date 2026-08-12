@@ -1,13 +1,13 @@
-你正在接手 Windows PDF 標記工具「Pdect / P找碴」，目前版本 V0.3.8。
+你正在接手 Windows PDF 標記工具「Pdect / P找碴」，目前版本 V0.4.0。
 
 請先閱讀 README_交接說明.md，再閱讀：
 1. pdect_app.py
 2. pdect_recovery_ext.py
-3. Pdect_V0.3.8.pyw
+3. Pdect_V0.4.0.pyw
 
 架構：
 - pdect_app.py 是功能主程式與唯一 UI / PDF 編輯 source of truth。
-- Pdect_V0.3.8.pyw 是 fail-safe launcher；它動態尋找並載入 pdect_app.py。
+- Pdect_V0.4.0.pyw 是 fail-safe launcher；它動態尋找並載入 pdect_app.py。
 - pdect_recovery_ext.py 是 optional monkey-patch extension，提供 Quick Save / autosave / crash recovery；它失敗時不得阻止主程式啟動。
 
 目前最重要的不變條件：

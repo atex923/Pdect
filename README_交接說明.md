@@ -1,9 +1,9 @@
-# Pdect / P找碴 V0.3.8 — Codex 交接
+# Pdect / P找碴 V0.4.0 — Codex 交接
 
 ## 1. 執行方式
 將以下三個檔案放在同一資料夾：
 
-- `Pdect_V0.3.8.pyw`：防閃退啟動器，正式建議入口。
+- `Pdect_V0.4.0.pyw`：防閃退啟動器，正式建議入口。
 - `pdect_app.py`：主程式，所有 PDF 編輯 UI / 標記 / 圖說 / Undo / Redo 都在這裡。
 - `pdect_recovery_ext.py`：可選擴充，負責快速儲存、每分鐘背景預存、異常復原。
 
@@ -18,15 +18,15 @@ pip install -r requirements.txt
 Windows 執行：
 
 ```text
-雙擊 Pdect_V0.3.8.pyw
+雙擊 Pdect_V0.4.0.pyw
 ```
 
 啟動器採 fail-open：`pdect_recovery_ext.py` 載入失敗時只記錄錯誤，仍應繼續啟動 `pdect_app.py`。啟動錯誤寫入 `Pdect_startup_error.log`。
 
 ## 2. 目前版本
-- 應用程式：V0.3.8
-- 啟動器：V0.3.8
-- Recovery / Quick Save extension：V0.3.8
+- 應用程式：V0.4.0
+- 啟動器：V0.4.0
+- Recovery / Quick Save extension：V0.4.0
 
 ## 3. 主要功能
 - PDF 拖曳開啟、整份連續垂直預覽。
@@ -53,7 +53,7 @@ Windows 執行：
 - 啟動時掃描暫存與正式檔，異常未同步時提供回存、另存新版本或略過。
 
 ## 4. 圖說字型的重要限制
-V0.3.x 圖說文字不再依賴一般 FreeText fallback，而是使用 Windows 標楷體實際字型檔：
+V0.4.0 圖說文字延續不依賴一般 FreeText fallback，而是使用 Windows 標楷體實際字型檔：
 
 `C:\Windows\Fonts\kaiu.ttf`
 
@@ -69,6 +69,11 @@ V0.3.x 圖說文字不再依賴一般 FreeText fallback，而是使用 Windows �
 7. 新動作進入 Undo 歷史時必須清掉 Redo stack；但正在 replay Undo/Redo 時不可誤清掉另一側歷史。
 
 ## 6. 近期最重要改版
+### V0.4.0
+- 正式進版 V0.4.0。
+- 延續 V0.3.8 的 PDF 文字層選取與系統剪貼簿複製能力。
+- 同步整理根目錄最新版、`src_versioned/` 最新來源副本、`history/V0.3.8/` 舊版歸檔與交付文件。
+
 ### V0.3.8
 - 改善選擇文字工具，優先讀取 PDF 文字層並寫入系統剪貼簿。
 - 選字複製在必要時會用逐詞行序重建文字，減少貼上到文書編輯軟體時多餘空白行。
@@ -113,7 +118,7 @@ V0.3.x 圖說文字不再依賴一般 FreeText fallback，而是使用 Windows �
 ## 7. 驗收清單
 Codex 修改後至少應逐項確認：
 
-- [ ] `python -m py_compile Pdect_V0.3.8.py Pdect_V0.3.8.pyw pdect_app.py pdect_recovery_ext.py` 無 SyntaxError。
+- [ ] `python -m py_compile Pdect_V0.4.0.py Pdect_V0.4.0.pyw pdect_app.py pdect_recovery_ext.py` 無 SyntaxError。
 - [ ] 沒有 `pdect_recovery_ext.py` 時仍可啟動主程式。
 - [ ] 缺少 `pdect_app.py` 時 launcher 顯示訊息而非閃退。
 - [ ] 開啟一般 PDF、拖曳 PDF 均正常。
@@ -135,7 +140,7 @@ Codex 修改後至少應逐項確認：
 - [ ] 模擬異常退出後重新啟動，可看到未同步暫存復原提示。
 
 ## 8. 版本規則
-目前專案已到 `V0.3.8`。一般 bugfix / 小功能請增加第三碼，例如 `V0.3.9`；大型功能或架構調整再增加第二碼。
+目前專案已到 `V0.4.0`。一般 bugfix / 小功能請增加第三碼，例如 `V0.4.1`；大型功能或架構調整再增加第二碼。
 
 修改版本時同步更新：
 - `pdect_app.py` 的 `APP_VERSION` 與檔頭 changelog。
