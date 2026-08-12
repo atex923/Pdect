@@ -1,9 +1,9 @@
-# Pdect / P找碴 V0.3.7 — Codex 交接
+# Pdect / P找碴 V0.3.8 — Codex 交接
 
 ## 1. 執行方式
 將以下三個檔案放在同一資料夾：
 
-- `Pdect_V0.3.7.pyw`：防閃退啟動器，正式建議入口。
+- `Pdect_V0.3.8.pyw`：防閃退啟動器，正式建議入口。
 - `pdect_app.py`：主程式，所有 PDF 編輯 UI / 標記 / 圖說 / Undo / Redo 都在這裡。
 - `pdect_recovery_ext.py`：可選擴充，負責快速儲存、每分鐘背景預存、異常復原。
 
@@ -18,15 +18,15 @@ pip install -r requirements.txt
 Windows 執行：
 
 ```text
-雙擊 Pdect_V0.3.7.pyw
+雙擊 Pdect_V0.3.8.pyw
 ```
 
 啟動器採 fail-open：`pdect_recovery_ext.py` 載入失敗時只記錄錯誤，仍應繼續啟動 `pdect_app.py`。啟動錯誤寫入 `Pdect_startup_error.log`。
 
 ## 2. 目前版本
-- 應用程式：V0.3.7
-- 啟動器：V0.3.7
-- Recovery / Quick Save extension：V0.3.7
+- 應用程式：V0.3.8
+- 啟動器：V0.3.8
+- Recovery / Quick Save extension：V0.3.8
 
 ## 3. 主要功能
 - PDF 拖曳開啟、整份連續垂直預覽。
@@ -35,7 +35,7 @@ Windows 執行：
 - 3 個標記色塊，預設紅 / 綠 / 藍；每格下方 `▼` 開色盤。
 - 螢光筆透明度、刪除線寬度可調。
 - 手繪水平螢光線、水平刪除線、左上到右下斜線刪除線。
-- 選擇文字工具：拖曳框選頁面文字後複製到剪貼簿。
+- 選擇文字工具：拖曳框選 PDF 文字層後自動複製到系統剪貼簿，可貼到 Word、Google Docs 等文書編輯軟體。
 - PDF 書籤工具：左側 `+` / `-` 搭配可輸入下拉欄，新增目前頁書籤、刪除選取書籤、下拉跳轉；新增 / 刪除納入 Undo / Redo。
 - 再次開啟同一 PDF 時，可選擇回到上次檢視頁面。
 - 方框工具：內部透明無色，框線粗細與顏色沿用刪除線寬度與目前色塊。
@@ -69,6 +69,10 @@ V0.3.x 圖說文字不再依賴一般 FreeText fallback，而是使用 Windows �
 7. 新動作進入 Undo 歷史時必須清掉 Redo stack；但正在 replay Undo/Redo 時不可誤清掉另一側歷史。
 
 ## 6. 近期最重要改版
+### V0.3.8
+- 改善選擇文字工具，優先讀取 PDF 文字層並寫入系統剪貼簿。
+- 選字複製在必要時會用逐詞行序重建文字，減少貼上到文書編輯軟體時多餘空白行。
+
 ### V0.3.7
 - 新增選擇文字工具，拖曳框選 PDF 文字後複製到剪貼簿。
 - 新增 PDF 書籤下拉工具列，支援輸入名稱、`+` 儲存目前頁、`-` 刪除選取書籤、下拉跳轉，新增 / 刪除可 Undo / Redo。
@@ -109,7 +113,7 @@ V0.3.x 圖說文字不再依賴一般 FreeText fallback，而是使用 Windows �
 ## 7. 驗收清單
 Codex 修改後至少應逐項確認：
 
-- [ ] `python -m py_compile Pdect_V0.3.7.py pdect_app.py pdect_recovery_ext.py` 無 SyntaxError。
+- [ ] `python -m py_compile Pdect_V0.3.8.py Pdect_V0.3.8.pyw pdect_app.py pdect_recovery_ext.py` 無 SyntaxError。
 - [ ] 沒有 `pdect_recovery_ext.py` 時仍可啟動主程式。
 - [ ] 缺少 `pdect_app.py` 時 launcher 顯示訊息而非閃退。
 - [ ] 開啟一般 PDF、拖曳 PDF 均正常。
@@ -117,7 +121,7 @@ Codex 修改後至少應逐項確認：
 - [ ] 關鍵字螢光筆、刪除線正常。
 - [ ] 3 色色塊及 `▼` 色盤正常。
 - [ ] 手繪三種線正常。
-- [ ] 選擇文字框選後會複製文字到剪貼簿。
+- [ ] 選擇文字框選後會自動複製到系統剪貼簿，且可貼到文書編輯軟體。
 - [ ] 書籤可新增、下拉跳轉、刪除，新增 / 刪除可 Ctrl+Z / Ctrl+Y。
 - [ ] 重新開啟同一 PDF 時會詢問是否回到上次檢視頁面。
 - [ ] 方框內部透明無色，框線粗細與顏色沿用設定。
@@ -131,7 +135,7 @@ Codex 修改後至少應逐項確認：
 - [ ] 模擬異常退出後重新啟動，可看到未同步暫存復原提示。
 
 ## 8. 版本規則
-目前專案已到 `V0.3.7`。一般 bugfix / 小功能請增加第三碼，例如 `V0.3.8`；大型功能或架構調整再增加第二碼。
+目前專案已到 `V0.3.8`。一般 bugfix / 小功能請增加第三碼，例如 `V0.3.9`；大型功能或架構調整再增加第二碼。
 
 修改版本時同步更新：
 - `pdect_app.py` 的 `APP_VERSION` 與檔頭 changelog。
