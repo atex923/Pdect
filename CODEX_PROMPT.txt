@@ -1,13 +1,13 @@
-你正在接手 Windows PDF 標記工具「Pdect / P找碴」，目前版本 V0.4.0。
+你正在接手 Windows PDF 標記工具「Pdect / P找碴」，目前版本 V0.4.1。
 
 請先閱讀 README_交接說明.md，再閱讀：
 1. pdect_app.py
 2. pdect_recovery_ext.py
-3. Pdect_V0.4.0.pyw
+3. Pdect_V0.4.1.pyw
 
 架構：
 - pdect_app.py 是功能主程式與唯一 UI / PDF 編輯 source of truth。
-- Pdect_V0.4.0.pyw 是 fail-safe launcher；它動態尋找並載入 pdect_app.py。
+- Pdect_V0.4.1.pyw 是 fail-safe launcher；它動態尋找並載入 pdect_app.py。
 - pdect_recovery_ext.py 是 optional monkey-patch extension，提供 Quick Save / autosave / crash recovery；它失敗時不得阻止主程式啟動。
 
 目前最重要的不變條件：
@@ -16,6 +16,7 @@
 - 圖說目前是自訂群組：框、箭頭、向量文字 content stream；用 group ID 跨 xref 重建追蹤。
 - 圖說字型預設在 Windows 取 C:\Windows\Fonts\kaiu.ttf；其他平台可用 PDECT_KAIU_FONT 指定合法本機 kaiu.ttf，文字上/左內距 2 px。
 - 快速窗選清除必須一次快照、批次刪除；圖說碰到任一部分就整組刪除。
+- 純搜尋、螢光筆與刪除線共用關鍵字欄；隱藏標記不得修改 PDF 內容；全部清除必須可 Undo / Redo。
 - Undo / Redo 各最多 10 次：Ctrl+Z / Ctrl+Y；新編輯清 Redo。
 - PDF 書籤新增 / 刪除屬於 PDF mutation，必須納入 Undo / Redo。
 - 選擇文字工具必須讀取 PDF 文字層並寫入系統剪貼簿，讓使用者可貼到其他文書編輯軟體。
