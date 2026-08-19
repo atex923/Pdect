@@ -5,7 +5,7 @@ Pdect 是一個繁體中文介面的 Windows PDF 標記工具，主打快速找�
 ## 特色
 
 - 共用關鍵字欄可純搜尋、逐筆跳到命中位置，或批次套用螢光筆／刪除線，並可指定起始頁。
-- 緊湊雙列工具列：第一列保留常用搜尋／批次標記，箭頭可持續展開第二列工具，再按一次才收合。
+- 緊湊單列工具列，所有功能固定同排；螢光筆與刪除線文字按鈕後緊接各自的手繪工具。
 - 支援整份 PDF 連續垂直預覽、拖曳開檔、Ctrl + 滾輪縮放與快速跳頁。
 - 3 組可自訂色塊，螢光筆、刪除線與手繪線共用目前選色。
 - 手繪水平螢光線、水平刪除線、左上到右下斜線刪除線。
@@ -22,9 +22,9 @@ Pdect 是一個繁體中文介面的 Windows PDF 標記工具，主打快速找�
 
 ## 目前版本
 
-- App：V0.4.2
-- Launcher：V0.4.2
-- Recovery extension：V0.4.2
+- App：V0.4.3
+- Launcher：V0.4.3
+- Recovery extension：V0.4.3
 
 GitHub 主頁與根目錄只保留目前最新版。舊版來源統一收到 `history/`，並依版號分資料夾保存。
 
@@ -39,13 +39,13 @@ pip install -r requirements.txt
 Windows 建議執行：
 
 ```text
-雙擊 Pdect_V0.4.2.pyw
+雙擊 Pdect_V0.4.3.pyw
 ```
 
 除錯時可用：
 
 ```bash
-python Pdect_V0.4.2.py
+python Pdect_V0.4.3.py
 ```
 
 ## 字型需求
@@ -60,8 +60,8 @@ C:\Windows\Fonts\kaiu.ttf
 
 ## 專案檔案
 
-- `Pdect_V0.4.2.pyw`：正式入口，載入失敗時會顯示錯誤並寫入 `Pdect_startup_error.log`。
-- `Pdect_V0.4.2.py`：console 可見的除錯入口。
+- `Pdect_V0.4.3.pyw`：正式入口，載入失敗時會顯示錯誤並寫入 `Pdect_startup_error.log`。
+- `Pdect_V0.4.3.py`：console 可見的除錯入口。
 - `pdect_app.py`：主程式與 PDF 編輯邏輯。
 - `pdect_recovery_ext.py`：Quick Save、autosave、recovery 擴充。
 - `README_交接說明.md`：維護交接、架構與驗收清單。
@@ -76,3 +76,4 @@ C:\Windows\Fonts\kaiu.ttf
 - `history/V0.3.8/`：V0.3.8 主程式與 recovery extension 歷史來源。
 - `history/V0.4.0/`：V0.4.0 主程式與 recovery extension 歷史來源。
 - `history/V0.4.1/`：V0.4.1 主程式與 recovery extension 歷史來源。
+- `history/V0.4.2/`：V0.4.2 主程式與 recovery extension 歷史來源。
