@@ -1,9 +1,9 @@
-# Pdect / P找碴 V0.4.1 — Codex 交接
+# Pdect / P找碴 V0.4.2 — Codex 交接
 
 ## 1. 執行方式
 將以下三個檔案放在同一資料夾：
 
-- `Pdect_V0.4.1.pyw`：防閃退啟動器，正式建議入口。
+- `Pdect_V0.4.2.pyw`：防閃退啟動器，正式建議入口。
 - `pdect_app.py`：主程式，所有 PDF 編輯 UI / 標記 / 圖說 / Undo / Redo 都在這裡。
 - `pdect_recovery_ext.py`：可選擴充，負責快速儲存、每分鐘背景預存、異常復原。
 
@@ -18,20 +18,21 @@ pip install -r requirements.txt
 Windows 執行：
 
 ```text
-雙擊 Pdect_V0.4.1.pyw
+雙擊 Pdect_V0.4.2.pyw
 ```
 
 啟動器採 fail-open：`pdect_recovery_ext.py` 載入失敗時只記錄錯誤，仍應繼續啟動 `pdect_app.py`。啟動錯誤寫入 `Pdect_startup_error.log`。
 
 ## 2. 目前版本
-- 應用程式：V0.4.1
-- 啟動器：V0.4.1
-- Recovery / Quick Save extension：V0.4.1
+- 應用程式：V0.4.2
+- 啟動器：V0.4.2
+- Recovery / Quick Save extension：V0.4.2
 
 ## 3. 主要功能
 - PDF 拖曳開啟、整份連續垂直預覽。
 - Ctrl + 滾輪縮放；一般滾輪捲動；左鍵拖曳平移。
 - 搜尋、螢光筆與刪除線共用同一關鍵字欄；純搜尋可逐筆跳至命中位置，並可指定起始頁。
+- 工具列分為緊湊第一列與延伸第二列；箭頭展開後保持顯示，操作任一工具不會自動收合，再按箭頭才隱藏。
 - 3 個標記色塊，預設紅 / 綠 / 藍；每格下方 `▼` 開色盤。
 - 螢光筆透明度、刪除線寬度可調。
 - 手繪水平螢光線、水平刪除線、左上到右下斜線刪除線。
@@ -54,7 +55,7 @@ Windows 執行：
 - 啟動時掃描暫存與正式檔，異常未同步時提供回存、另存新版本或略過。
 
 ## 4. 圖說字型的重要限制
-V0.4.1 圖說文字延續不依賴一般 FreeText fallback，而是使用 Windows 標楷體實際字型檔：
+V0.4.2 圖說文字延續不依賴一般 FreeText fallback，而是使用 Windows 標楷體實際字型檔：
 
 `C:\Windows\Fonts\kaiu.ttf`
 
@@ -70,6 +71,11 @@ V0.4.1 圖說文字延續不依賴一般 FreeText fallback，而是使用 Window
 7. 新動作進入 Undo 歷史時必須清掉 Redo stack；但正在 replay Undo/Redo 時不可誤清掉另一側歷史。
 
 ## 6. 近期最重要改版
+### V0.4.2
+- 文字按鈕與搜尋／書籤欄縮窄，第一列最小需求寬度約 986 px。
+- 手繪、清除、顯示切換、選字、方框、圖說與書籤移到第二列。
+- 第二列使用固定上下箭頭切換，展開狀態不因操作工具而自動關閉。
+
 ### V0.4.1
 - 新增純搜尋按鈕；搜尋、螢光筆與刪除線共用關鍵字欄，連續搜尋可逐筆跳至命中位置。
 - 新增隱藏／顯示標記預覽；一般 PDF 直接略過 Annotation 渲染，含 Pdect 圖說時才建立預覽副本並移除圖說內容串流。
@@ -124,12 +130,13 @@ V0.4.1 圖說文字延續不依賴一般 FreeText fallback，而是使用 Window
 ## 7. 驗收清單
 Codex 修改後至少應逐項確認：
 
-- [ ] `python -m py_compile Pdect_V0.4.1.py Pdect_V0.4.1.pyw pdect_app.py pdect_recovery_ext.py` 無 SyntaxError。
+- [ ] `python -m py_compile Pdect_V0.4.2.py Pdect_V0.4.2.pyw pdect_app.py pdect_recovery_ext.py` 無 SyntaxError。
 - [ ] 沒有 `pdect_recovery_ext.py` 時仍可啟動主程式。
 - [ ] 缺少 `pdect_app.py` 時 launcher 顯示訊息而非閃退。
 - [ ] 開啟一般 PDF、拖曳 PDF 均正常。
 - [ ] Ctrl+滾輪縮放與普通滾輪捲動正常。
 - [ ] 純搜尋可逐筆定位；同一文字欄可供螢光筆與刪除線使用。
+- [ ] 1000 px 寬視窗第一列工具完整；第二列展開後操作工具不自動收合，再按箭頭才隱藏。
 - [ ] 3 色色塊及 `▼` 色盤正常。
 - [ ] 手繪三種線正常。
 - [ ] 選擇文字框選後會自動複製到系統剪貼簿，且可貼到文書編輯軟體。
@@ -147,7 +154,7 @@ Codex 修改後至少應逐項確認：
 - [ ] 模擬異常退出後重新啟動，可看到未同步暫存復原提示。
 
 ## 8. 版本規則
-目前專案已到 `V0.4.1`。一般 bugfix / 小功能請增加第三碼，例如 `V0.4.2`；大型功能或架構調整再增加第二碼。
+目前專案已到 `V0.4.2`。一般 bugfix / 小功能請增加第三碼，例如 `V0.4.3`；大型功能或架構調整再增加第二碼。
 
 修改版本時同步更新：
 - `pdect_app.py` 的 `APP_VERSION` 與檔頭 changelog。

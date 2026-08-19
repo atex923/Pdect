@@ -1,13 +1,13 @@
-Pdect V0.4.1 Codex handoff package
+Pdect V0.4.2 Codex handoff package
 
 Runtime files (same directory):
-- Pdect_V0.4.1.pyw        fail-safe launcher / recommended entry point
+- Pdect_V0.4.2.pyw        fail-safe launcher / recommended entry point
 - pdect_app.py             main application source
 - pdect_recovery_ext.py    optional quick-save/autosave/recovery extension
 - requirements.txt         Python dependencies
 
 Convenience / handoff files:
-- Pdect_V0.4.1.py          console-visible copy of launcher for debugging
+- Pdect_V0.4.2.py          console-visible copy of launcher for debugging
 - README_交接說明.md       architecture, features, risks, test checklist
 - CODEX_PROMPT.txt         ready-to-paste Codex handoff prompt
 - src_versioned/           current version-suffixed source copies
